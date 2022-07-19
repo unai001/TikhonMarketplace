@@ -1,0 +1,50 @@
+#contenido {
+    transition: margin-left 0.5s linear;
+    text-align: center;
+}
+
+.row {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #3E514F;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.medioHr {
+    height: 10px;
+    width: 50%;
+    margin-right: 50%;
+    opacity: 1;
+}
+
+#offertas {
+    text-align: left;
+}
+
+.slideitemTitle {
+    height: 150px;
+    top: 10px;
+    margin-left: -100px;
+}
+
+.slderImage {
+    height: 500px;
+    margin-left: 150px;
+}
+
+.slderText {
+    height: 300px;
+    color: #F5F5F5;
+    margin-top: 170px;
+    width: 250%;
+    font-size: 30px;
+    margin-bottom: 100px;
+    overflow: revert;
+    text-shadow: 1px 1px 20px #000000;
+}

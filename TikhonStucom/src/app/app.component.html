@@ -1,0 +1,169 @@
+<div id="page-container">
+    <div id="content-wrap">
+
+        <!--Inicio navbar superior-->
+        <div class="row" id="navbarArriba">
+            <ul class="nav col-6">
+                <!--ESQUERRA-->
+                <div class="navBarLinksLeft">
+                    <li class="nav-item" id="botonNav">
+                        <img src="assets/navbarToggler.png" class="iconNavbar snavbar-toggler-icon navbarToggler invertW" onclick="closeOpenNav()">
+                    </li>
+                    <li class="nav-item">
+                        <img src="./assets/logo.png" class="logoNavBar" routerLink="">
+                    </li>
+                    <li class="nav-item">
+                        <h4 class="navbarTitle hoverToBlue" routerLink="">Tikhon</h4>
+                    </li>
+                </div>
+
+            </ul>
+
+            <!--DRETA-->
+            <ul class="nav col-6 justify-content-end">
+                <div class="navBarLinksRight">
+                    <li class="nav-item">
+                        <!-- Selector de idiomas-->
+                        <div class="dropdown">
+                            <button class="dropbtn bandera"></button>
+                            <div class="dropdown-content">
+                                <span class="languageDropdwon">
+                  <a href="">
+                    <img src="../assets/icons/banderas/uk.png" class="bandera">
+                    <p class="languageTag">English</p>
+                  </a>
+                </span>
+                                <span class="languageDropdwon">
+                  <a href="">
+                    <img src="../assets/icons/banderas/catalonia.png" class="bandera">
+                    <p class="languageTag">Català</p>
+                  </a>
+                </span>
+                                <span class="languageDropdwon">
+                  <a href="">
+                    <img src="../assets/icons/banderas/andalucia.png" class="bandera">
+                    <p class="languageTag">Andalúh</p>
+                  </a>
+                </span>
+                            </div>
+                        </div>
+                        <!-- Fin selector de idiomas-->
+                    </li>
+                    <li class="nav-item">
+                        <!-- Dark & light switch -->
+                        <label class="switch">
+              <input type="checkbox" onchange="switchTheme(event)">
+              <span class="slider round"></span>
+              <img class="sun" src="../assets/icons/sun.png" alt="sun">
+              <img class="moon" src="../assets/icons/nightmode.png" alt="moon">
+            </label>
+                        <!-- Final dark & light switch -->
+                    </li>
+                    <!-------Dropdown menu profile/login  -->
+
+                    <li *ngIf="readLocalStorageValue() != undefined" class="nav-item " id="logOffButton">
+                        <button class="logOffButton invertW" (click)="logOff()">Log Off</button>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown2">
+                            <img src="../assets/icons/search.png" class="iconNavbar invertW" routerLink="search">
+                            <img src="../assets/icons/upload.png" class="iconNavbar invertW" routerLink="upload">
+                            <ng-container *ngIf="carritoEmpty() == true">
+                                <img src="../assets/icons/basket.png" class="iconNavbar invertW" routerLink="carrito">
+                            </ng-container>
+                            <ng-container *ngIf="carritoEmpty() == false">
+                                <img src="../assets/icons/basket1.png" class="iconNavbar invertNoti" routerLink="carrito">
+                            </ng-container>
+
+                            <!-- EL BOTON CAMBIA DE RUTA SEGUN SI ESTA LOGUEADO O NO-->
+                            <span *ngIf="readLocalStorageValue() != undefined" class="nav-item" id="logOffButton">
+                <img src="./assets/icons/user.png" class="iconNavbar invertW" routerLink="areapersonal">
+              </span>
+                            <span *ngIf="readLocalStorageValue() == undefined" class="nav-item" id="logOffButton">
+                <img src="./assets/icons/user.png" class="iconNavbar invertW" routerLink="login">
+              </span>
+                            <!-- FIN NGIF BOTON -->
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <span class="loginName" routerLink="areapersonal">{{displayName}}</span>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <!--Final navbar superior-->
+
+        <!--- Inicio del navbar lateral --->
+        <div id="mySidenav" class="sidenav">
+
+            <!-- JUEGOS -->
+            <h3 class="leftNavbarTitle">Juegos</h3>
+            <hr class="hrLeftNavbar">
+            <a class="closebtn" onclick="closeNav()">&times;</a>
+            <a routerLink="juego/lol"><img src="assets/icons/iconsJuegos/lol.png" class="icons"> LoL</a>
+            <a routerLink="juego/fortnite"><img src="assets/icons/iconsJuegos/fortnite.png" class="icons"> Fornite</a>
+            <a routerLink="juego/csgo"><img src="assets/icons/iconsJuegos/csgo.png" class="icons"> CSGO </a>
+            <a routerLink="juego/valorant"><img src="assets/icons/iconsJuegos/valorant.png" class="icons"> Valorant </a>
+            <a routerLink="juegos"><img src="assets/logo.png" class="icons"> Mas juegos </a>
+            <!-- FUN JUEGOS -->
+
+            <!-- RECURSOS -->
+            <h3 class="leftNavbarTitle">Recursos</h3>
+            <hr class="hrLeftNavbar">
+            <a routerLink="about"><img src="assets/icons/info.png" class="icons"> About</a>
+            <a routerLink="services"><img src="assets/icons/hammer.png" class="icons"> Services</a>
+            <a routerLink="contact"><img src="assets/icons/telf.png" class="icons"> Contact </a>
+            <a routerLink="recursos"><img src="assets/logo.png" class="icons"> Recursos </a>
+            <!-- FIN RECURSOS -->
+
+            <!-- PERSONAL AREA -->
+            <h3 class="leftNavbarTitle">Area Personal</h3>
+            <hr class="hrLeftNavbar">
+            <a routerLink="areapersonal"><img src="assets/logo.png" class="icons"> Area Personal </a>
+            <a (click)="dyslexicMode()"><img src="../assets/icons/wheelChair.png" class="icons" (click)="dyslexicMode()"> Modo dislexia</a>
+        </div>
+        <!-- FUN AREA PERSONAL -->
+
+        <!--- Final de navbar lateral --->
+        <router-outlet></router-outlet>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-light text-center text-white">
+        <div class="container p-2 pb-0">
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-primary btn-floating m-1 footerButton" style="background-color: #3b5998;" href="#!" role="button">
+                    <img src="../assets/icons/paginas/facebook.png" class="footerIcon">
+                </a>
+
+                <!-- Twitter -->
+                <a class="btn btn-primary btn-floating m-1 footerButton" style="background-color: #55acee;" href="#!" role="button">
+                    <img src="../assets/icons/paginas/twitter.png" class="footerIcon">
+                </a>
+
+                <!-- Instagram -->
+                <a class="btn btn-primary btn-floating m-1 footerButton" style="background-color: #ac2bac;" href="#!" role="button">
+                    <img src="../assets/icons/paginas/instagram.png" class="footerIcon">
+                </a>
+
+                <!-- Linkedin -->
+                <a class="btn btn-primary btn-floating m-1 footerButton" style="background-color: #0082ca;" href="#!" role="button">
+                    <img src="../assets/icons/paginas/linkedin.png" class="footerIcon">
+                </a>
+                <!-- Github -->
+                <a class="btn btn-primary btn-floating m-1 footerButton" style="background-color: #333333;" href="#!" role="button">
+                    <img src="../assets/icons/paginas/github.png" class="footerIcon">
+                </a>
+            </section>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2022 Copyright:
+            <a class="text-white">Tikhon.io</a> -
+            <a class="text-white" routerLink="contact">Contacto</a> - Proyecto educativo no denunciar por copyright
+        </div>
+    </footer>
+    <!-- FIN FOOTER -->
+</div>

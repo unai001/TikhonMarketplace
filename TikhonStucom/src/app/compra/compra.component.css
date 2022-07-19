@@ -1,0 +1,31 @@
+#contenido {
+    transition: margin-left 0.5s linear;
+}
+
+.title {
+    text-align: center;
+    color: #3E514F;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #3E514F;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.formSUbidaProducto {
+    padding: 5px;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+
+.centrado {
+    margin-left: 45%;
+}

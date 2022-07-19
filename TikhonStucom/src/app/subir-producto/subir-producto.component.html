@@ -1,0 +1,114 @@
+<div id="contenido">
+  <h1 class="title">Publicar producto</h1>
+  <div class="container-md formSUbidaProducto">
+    <h2 class="subtitle">Informacion pública</h2>
+
+    <form #formSubirProducto="ngForm">
+      <div class="row align-items-start">
+        <div class="col inputTag">Nombre</div>
+        <div class="col">
+          <input type="text" class="input" name="nombreForm" [(ngModel)]="nombre" (keyup)="controlSubirProducto()" required>
+        </div>
+        <div class="col inputTag">Descripción</div>
+        <div class="col">
+          <input type="text" class="input" name="descripcionForm" [(ngModel)]="descripcion" (keyup)="controlSubirProducto()" required>
+        </div>
+      </div>
+
+      <div class="row align-items-start">
+        <div class="col inputTag">Precio</div>
+        <div class="col">
+          <input type="text" class="input" name="precioForm" [(ngModel)]="precio" (keyup)="controlSubirProducto()" required>
+        </div>
+        <div class="col inputTag">Divisa</div>
+        <div class="col">
+          <select name="divisaForm" class="input inputWidth" [(ngModel)]="divisa">
+            <option *ngFor="let divisaFor of divisas" value="{{divisaFor.idDivisa}}" (change)="controlSubirProducto()">{{divisaFor.simbolo}}</option>
+
+          </select>
+        </div>
+      </div>
+
+      <div class="row align-items-start">
+        <div class="col inputTag">Imagen</div>
+        <div class="col">
+          <input type="file"  class="input inputWidth inputfile" (change)="handleFileInput($event)" name="imagenForm" required>
+        </div>
+        <div class="col inputTag">Categoría</div>
+        <div class="col">
+          <select name="catergoriaForm" class="input inputWidth" [(ngModel)]="categoria">
+            <option value="Cuenta" (change)="controlSubirProducto()">Cuenta</option>
+            <option value="Skin" (change)="controlSubirProducto()">Skin</option>
+            <option value="Codigo" (change)="controlSubirProducto()">Código</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row align-items-start">
+        <div class="col inputTag">Sección</div>
+        <div class="col">
+          <select name="seccionForm" class="input inputWidth" [(ngModel)]="seccion">
+            <option *ngFor="let seccionFor of secciones" value="{{seccionFor.idSeccion}}" (change)="controlSubirProducto()">{{seccionFor.nombre}}</option>
+          </select>
+        </div>
+        <div class="col"></div>
+        <div class="col"></div>
+      </div>
+
+      <h2 class="subtitle">Datos del producto</h2>
+
+      <ng-container *ngIf="categoria == 'Cuenta'">
+        <div class="row align-items-start">
+        <div class="col inputTag">Usuario de login</div>
+        <div class="col">
+          <input type="text" class="input" name="UserLogForm" [(ngModel)]="userLog" (keyup)="controlSubirProducto()" required >
+        </div>
+        <div class="col inputTag">Correo</div>
+        <div class="col">
+          <input type="text" class="input" name="correoForm" [(ngModel)]="correo" (keyup)="controlSubirProducto()" required>
+        </div>
+      </div>
+
+      <div class="row align-items-start">
+        <div class="col inputTag">Contraseña</div>
+        <div class="col">
+          <input type="password" class="input" name="contraForm" [(ngModel)]="contra" (keyup)="controlSubirProducto()">
+        </div>
+        <div class="col inputTag">Pregunta secreta</div>
+        <div class="col">
+          <input type="text" class="input" name="secretAnswerForm" [(ngModel)]="secretAnswer" (keyup)="controlSubirProducto()">
+        </div>
+      </div>
+    </ng-container>
+
+
+
+      <ng-container *ngIf="categoria == 'Skin'"><div class="row align-items-start">
+        <div class="col inputTag">Usuario de login</div>
+        <div class="col">
+          <input type="text" class="input" name="UserLogForm" [(ngModel)]="userLog" (keyup)="controlSubirProducto()" required>
+        </div>
+        <div class="col inputTag">Correo</div>
+        <div class="col">
+          <input type="text" class="input" name="correoForm" [(ngModel)]="correo" (keyup)="controlSubirProducto()" required>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="categoria == 'Codigo'">
+      <div class="row align-items-start">
+      <div class="col inputTag">Codigo</div>
+      <div class="col">
+        <input type="text" class="input" name="UserLogForm" [(ngModel)]="codigo" (keyup)="controlSubirProducto()" required>
+      </div>
+      <div class="col inputTag"></div>
+      <div class="col">
+      </div>
+    </div>
+  </ng-container>
+
+    </form>
+    <button class="centrado botonPublicar" [disabled]="correcto == false"
+      (click)="subirProducto()">Publicar</button>
+  </div>
+</div>

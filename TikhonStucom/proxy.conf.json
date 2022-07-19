@@ -1,0 +1,14 @@
+{
+    "/CARPETA_PHP/*": {
+        "target": "http://localhost:80/proyecto/",
+        "secure": false,
+        "logLevel": "debug"
+    },
+    "/api/*": {
+        "target": "http://127.0.0.1:8884",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true,
+        "pathRewrite": { "^/api": "" }
+    }
+}

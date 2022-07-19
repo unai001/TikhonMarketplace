@@ -1,0 +1,166 @@
+/* El elemento div ocupara como minimo toda la pantalla */
+
+body {
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    min-height: 100vh;
+    min-width: 1153px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* SCROLLBAR STYLES */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 8px;
+}
+
+ ::-webkit-scrollbar-track {
+    background: hsl(172, 76%, 54%);
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: #2E89FC;
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #1e6ccc;
+}
+
+ ::-webkit-scrollbar-corner {
+    background-color: #2E89FC;
+}
+
+
+/* SCROLLBAR STYLES */
+
+
+/* DARK & LIGHT MODE*/
+
+
+/* Paleta de colores por defecto (light) */
+
+:root {
+    --bg-color: #bebebe;
+    --bg-color2: #818181;
+    --font-color: #4d4d4d;
+    --nb-color: #4d4d4d;
+    --nbt-color: #bebebe;
+    --invert1-color: 40%;
+    --invert2-color: 0%;
+    --invert3-color: 60%;
+    --invert4-color: 100%;
+}
+
+
+/* Paleta de colores por defecto (light) */
+
+
+/* Paleta de colores secundaria (dark) */
+
+[data-theme="dark"] {
+    --bg-color: #4d4d4d;
+    --font-color: #bebebe;
+    --nb-color: #bebebe;
+    --nbt-color: #4d4d4d;
+    --invert1-color: 60%;
+    --invert2-color: 100%;
+    --invert3-color: 40%;
+    --invert4-color: 0%;
+}
+
+
+/* Paleta de colores secundaria (dark) */
+
+
+/* DARK & LIGHT MODE*/
+
+p,
+span,
+div {
+    font-size: large;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+
+/* cards */
+
+.hrCarta {
+    color: #31E3CB;
+    opacity: 100%;
+    width: 100%;
+    height: 1px;
+}
+
+.recuadroCarta {
+    display: flex;
+    justify-content: left;
+    margin-top: 50px;
+    padding-left: 80px;
+}
+
+.botonCompraCarta {
+    background-color: #2E89FC;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    height: 30px;
+    width: 200px;
+}
+
+.botonCompraCarta:hover {
+    background-color: #394cf6;
+    color: white;
+}
+
+.cartaDivCarta {
+    width: 300px;
+    display: -webkit-inline-box;
+    margin-right: 1%;
+    margin-bottom: 16px;
+    margin: 20px;
+}
+
+.cardCarta {
+    background-color: #fff;
+    margin-left: 5px;
+    min-width: 300px;
+    border: 3px solid #2E89FC;
+    color: #3E514F;
+    min-height: 488px;
+}
+
+.productoImagenCarta {
+    height: 200px;
+    width: -webkit-fill-available;
+}
+
+.cartaProductoDescripcionCarta {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    height: 100px;
+    overflow: hidden;
+    text-align: justify;
+}
+
+.productoCategoriaCarta {
+    text-align: center;
+}
+
+.hrCarta {
+    color: #31E3CB;
+    opacity: 100%;
+    width: 100%;
+}
+
+.cartaTituloCarta {
+    margin-top: 3px;
+}
+
+
+/* cards */

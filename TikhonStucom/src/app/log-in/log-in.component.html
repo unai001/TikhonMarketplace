@@ -1,0 +1,25 @@
+<div id="contenido">
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="../assets/logo.png" id="icon" alt="User Icon">
+            </div>
+
+            <!-- Login Form -->
+            <form #login="ngForm" name="formLogin">
+                <input [(ngModel)]="loginUser" type="text" id="login" class="fadeIn second" name="loginUser" placeholder="User" autocomplete="on">
+                <input [(ngModel)]="loginPassword" type="text" style="-webkit-text-security: disc" id="password" class="fadeIn third" name="loginPass" placeholder="Password" autocomplete="off">
+                <input type="button" id="submit" class="fadeIn fourth bottomButtons" value="Log In" (click)="loginFunction(0)">
+                <input type="button" id="submit" class="fadeIn fourth bottomButtons" value="Sign In" routerLink="signin">
+            </form>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="underlineHover" href="#">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+</div>

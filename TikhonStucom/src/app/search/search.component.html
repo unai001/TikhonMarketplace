@@ -1,0 +1,69 @@
+<div id="contenido">
+    <div class="filtros">
+
+        <div class="select">
+            <label for="selSection">Filtra por juego </label>
+            <select name="selSection" id="selSection" class="form-select selSection" aria-label="Default select example" [(ngModel)]="selSection">
+            <option selected="selected" value="-1">All</option>
+            <option *ngFor="let sec of allSections" value="{{sec.idSeccion}}">{{ sec.nombre }}</option>
+          </select>
+        </div>
+        <div class="container select">
+            <div class="row height d-flex justify-content-center align-items-center">
+                <div class="col-md-8">
+                    <div class="search">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="search" name="input" #txt="ngModel" spellCheck="false">
+                        <img class="lupa" src="../../assets/icons/search.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="select">
+            <label for="selCat">Filtra por categoria</label>
+            <select name="selCat" id="selCat" class="form-select selSection" aria-label="Default select example" [(ngModel)]="selCat">
+            <option selected="selected" value="all">All</option>
+            <option *ngFor="let cat of categories">{{ cat }}</option>
+          </select>
+        </div>
+
+        <div class="select">
+            <label for="selOther">Otros filtros</label>
+            <select name="selOther" id="selOther" class="form-select selSection" aria-label="Default select example" (change)="otherSort();" [(ngModel)]="selOther">
+            <option *ngFor="let fil of filters">{{ fil }}</option>
+          </select>
+        </div>
+    </div>
+    <hr>
+    <div class="row recuadroCarta">
+        <ng-container *ngFor="let producto of allProductos">
+            <ng-container *ngIf="search == '' || buscar(producto.nombre)">
+                <ng-container *ngIf="selSection == -1 || producto.idSeccion == selSection">
+                    <ng-container *ngIf="selCat == 'all' || producto.categoria == selCat">
+                        <div class="cartaDivCarta">
+                            <div class="cardCarta" style="width: 18rem;">
+                                <div class="row" style="margin-top: 5%;" style="text-align: center;">
+                                    <div class="col-16">
+                                        <h2 class="cartaTituloCarta">{{producto.nombre | titlecase}}</h2>
+                                        <hr class="hrCarta">
+                                        <img src="{{producto.imagen}}" class="productoImagenCarta">
+                                        <div class="col-16 cartaProductoDescripcionCarta">
+                                            {{producto.descripcion}}
+                                        </div>
+                                        <div class="col-16 ">
+                                            <span class="productoCategoriaCarta">Categoria: <b>{{producto.categoria}}</b></span><br>
+                                        </div>
+                                        <div class="col">Precio: <b>{{producto.precioTotalstock}}€</b></div>
+                                        <div class="row">
+                                            <button class="btn botonCompraCarta" routerLink="/productoInfo/{{producto.idProducto}}">Info</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>

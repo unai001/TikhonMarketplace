@@ -1,0 +1,50 @@
+<div id="contenido">
+
+    <!-- Informacion del juego seleccionado -->
+    <div class="container-fluid div">
+        <div class="row div">
+            <div class="col div"></div>
+            <div class="col tituloSeccion div">
+                <h1>{{seccion.nombre | uppercase}}</h1>
+            </div>
+            <div class="col div"></div>
+        </div>
+        <div class="row div">
+            <div class="col tituloSeccion div"><img class="imgSection" src="{{seccion.imagen}}"></div>
+        </div>
+        <div class="row div">
+            <div class="col-3 div"></div>
+            <div class="col-6 descripcion div">
+                <span>{{seccion.descripcion}}</span>
+            </div>
+            <div class="col-3 div"></div>
+        </div>
+    </div>
+    <!-- Fin informacion del juego seleccionado -->
+
+    <!-- Productos del juego seleccionado -->
+    <div class="row recuadroCarta">
+        <div *ngFor="let producto of productos" class="cartaDivCarta">
+            <div class="cardCarta" style="width: 18rem;">
+                <div class="row" style="margin-top: 5%;" style="text-align: center;">
+                    <div class="col-16">
+                        <h2 class="cartaTituloCarta">{{producto.nombre | titlecase}}</h2>
+                        <hr class="hrCarta">
+                        <img src="{{producto.imagen}}" class="productoImagenCarta">
+                        <div class="col-16 cartaProductoDescripcionCarta">
+                            {{producto.descripcion}}
+                        </div>
+                        <div class="col-16 ">
+                            <span class="productoCategoriaCarta">Categoria: <b>{{producto.categoria}}</b></span><br>
+                        </div>
+                        <div class="col">Precio: <b>{{producto.precioTotalstock}}€</b></div>
+                        <div class="row">
+                            <button class="btn botonCompraCarta" routerLink="/productoInfo/{{producto.idProducto}}">Info</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin de productos del juego selccionado -->
+</div>

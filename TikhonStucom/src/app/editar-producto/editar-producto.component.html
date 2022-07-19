@@ -1,0 +1,125 @@
+<h1 mat-dialog-title>Modificar Producto</h1>
+<div mat-dialog-content>
+  <mat-stepper [linear]="true">
+    <ng-template matStepperIcon="phone" >
+      <mat-icon>description</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="info">
+<mat-icon>info</mat-icon>
+    </ng-template>
+    <mat-step state="phone" label="Informacion pública" >
+      <form #modificarProducto>
+        <div class="row align-items-start">
+          <div class="col">Nombre</div>
+          <div class="col">
+              <input type="text" name="nombreForm" [(ngModel)]="nombre" required  (keyup)="controlActualizar()">
+          </div>
+          <div class="col">Descripción</div>
+          <div class="col">
+              <input type="text" name="descripcionForm" [(ngModel)]="descripcion" required (keyup)="controlActualizar()" >
+          </div>
+      </div>
+
+      <div class="row align-items-start">
+          <div class="col">Precio</div>
+          <div class="col">
+              <input type="text" name="precioForm" [(ngModel)]="precio" required (keyup)="controlActualizar()" >
+          </div>
+          <div class="col">Divisa</div>
+          <div class="col">
+              <select name="divisaForm" [(ngModel)]="divisa" (change)="controlActualizar()">
+                <option *ngFor="let divisaFor of divisas" value="{{divisaFor.idDivisa}}">{{divisaFor.simbolo}}</option>
+              </select>
+          </div>
+      </div>
+
+      <div class="row align-items-start">
+          <div class="col">Imagen</div>
+          <div class="col">
+              <input type="file" (change)="handleFileInput($event)"  name="imagenForm" required>
+          </div>
+          <div class="col">Categoría</div>
+          <div class="col">
+            <select name="catergoriaForm" class="input inputWidth" [(ngModel)]="categoria">
+              <option value="Cuenta" (change)="controlActualizar()">Cuenta</option>
+              <option value="Skin" (change)="controlActualizar()">Skin</option>
+              <option value="Codigo" (change)="controlActualizar()">Código</option>
+            </select>
+          </div>
+      </div>
+
+      <div class="row align-items-start">
+          <div class="col">Sección</div>
+          <div class="col">
+              <select name="seccionForm" [(ngModel)]="seccion" (change)="controlActualizar()">
+                  <option *ngFor="let seccionFor of secciones"    value="{{seccionFor.idSeccion}}" >{{seccionFor.nombre}}</option>
+              </select>
+          </div>
+          <div class="col"></div>
+          <div class="col"></div>
+      </div>
+      </form>
+      <button mat-button (click)="onNoClick()">Cancelar</button>
+      <button mat-button matStepperNext>Siguiente</button>
+    </mat-step>
+
+
+    <mat-step state="info" label="Datos del producto">
+      <form #modificarInfoProducto>
+        <ng-container *ngIf="categoria == 'Cuenta'">
+          <div class="row align-items-start">
+          <div class="col inputTag">Usuario de login</div>
+          <div class="col">
+            <input type="text" class="input" name="UserLogForm" [(ngModel)]="userLog" (keyup)="controlActualizar()" required >
+          </div>
+          <div class="col inputTag">Correo</div>
+          <div class="col">
+            <input type="text" class="input" name="correoForm" [(ngModel)]="correo" (keyup)="controlActualizar()" required>
+          </div>
+        </div>
+
+        <div class="row align-items-start">
+          <div class="col inputTag">Contraseña</div>
+          <div class="col">
+            <input type="password" class="input" name="contraForm" [(ngModel)]="contra" (keyup)="controlActualizar()">
+          </div>
+          <div class="col inputTag">Pregunta secreta</div>
+          <div class="col">
+            <input type="text" class="input" name="secretAnswerForm" [(ngModel)]="secretAnswer" (keyup)="controlActualizar()">
+          </div>
+        </div>
+      </ng-container>
+
+
+
+        <ng-container *ngIf="categoria == 'Skin'"><div class="row align-items-start">
+          <div class="col inputTag">Usuario de login</div>
+          <div class="col">
+            <input type="text" class="input" name="UserLogForm" [(ngModel)]="userLog" (keyup)="controlActualizar()" required>
+          </div>
+          <div class="col inputTag">Correo</div>
+          <div class="col">
+            <input type="text" class="input" name="correoForm" [(ngModel)]="correo" (keyup)="controlActualizar()" required>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="categoria == 'Codigo'">
+        <div class="row align-items-start">
+        <div class="col inputTag">Codigo</div>
+        <div class="col">
+          <input type="text" class="input" name="UserLogForm" [(ngModel)]="codigo" (keyup)="controlActualizar()" required>
+        </div>
+        <div class="col inputTag"></div>
+        <div class="col">
+        </div>
+      </div>
+    </ng-container>
+  </form>
+      <button mat-button (click)="onNoClick()">Cancelar</button>
+      <button mat-button matStepperPrevious>Atrás</button>
+      <button mat-button [disabled]="!modificado" (click)="modificar()">Modificar</button>
+    </mat-step>
+
+  </mat-stepper>
+</div>

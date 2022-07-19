@@ -1,0 +1,57 @@
+<div id="contenido">
+    <div class="row">
+        <div class="imagenContainer col">
+            <img class="imagen" src="{{producto.imagen}}" alt="productImagemage">
+        </div>
+        <div class="col">
+            <div class="nombreContainer">
+                <h2 class="nombre">{{producto.nombre}}</h2>
+            </div>
+
+            <div class="descripcionComtainer">
+                <p class="descripcion">{{producto.descripcion}}</p>
+            </div>
+            <div class="infoComtainer">
+                <div class="infoContrnt"><span class="info">Categoria: </span>{{producto.categoria}}</div>
+                <div class="infoContrnt"><span class="info">Fecha publicacion: </span>{{getDate(producto)}}</div>
+                <div class="infoContrnt"><span class="info">Precio: </span>{{producto.precioTotalstock}} <span class="divisa">{{producto.divisa.simbolo}}</span></div>
+                <div class="infoContrnt" routerLink="/juego/{{seccion.acronimo}}"><span class="info">Seccion: </span>{{seccion.nombre}}</div>
+                <div class="infoContrnt"><span class="info">Usuario: </span>{{user.usuario}} <span class="info"> Contacto: </span>{{user.email}}</div>
+            </div>
+            <div class="comprarContainer">
+                <button class="btn btnCompra" (click)="comprar()">Comprar</button>
+                <button [disabled]="inCarrito()" id="addToShopingCar" class="btn btnAddCarrito " data-toggle="modal" data-target="#myModal" (click)="addToShopingCar()" (mouseover)="carritoIconStyleOn()" (mouseout)="carritoIconStyleOff()">{{msgBtn}}<img id="carrIcon" src="/assets/icons/{{iconBtn}}.png"  class="btnIcono"></button>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <h1 id="offertas">Relacionados</h1>
+        </div>
+        <hr class="medioHr">
+        <div class="row recuadroCarta">
+            <div *ngFor="let producto of allProductos" class="cartaDivCarta">
+                <div class="cardCarta" style="width: 18rem;">
+                    <div class="row" style="margin-top: 5%;" style="text-align: center;">
+                        <div class="col-16">
+                            <h2 class="cartaTituloCarta">{{producto.nombre | titlecase}}</h2>
+                            <hr class="hrCarta">
+                            <img src="{{producto.imagen}}" class="productoImagenCarta">
+                            <div class="col-16 cartaProductoDescripcionCarta">
+                                {{producto.descripcion}}
+                            </div>
+                            <div class="col-16 ">
+                                <span class="productoCategoriaCarta">Categoria: <b>{{producto.categoria}}</b></span><br>
+                            </div>
+                            <div class="col">Precio: <b>{{producto.precioTotalstock}}€</b></div>
+                            <div class="row">
+                                <button class="btn botonCompraCarta" routerLink="/productoInfo/{{producto.idProducto}}">Info</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

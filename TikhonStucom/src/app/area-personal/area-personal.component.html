@@ -1,0 +1,170 @@
+<div id="contenido">
+    <h1 class="sectionTitle">Area Personal</h1>
+
+    <!-- TIENDA -->
+    <div class="contenedor">
+        <p class="subtitle"><img class="icono" src="../assets/icons/tienda.png"> Mi tienda</p>
+        <!-- TITULOS TABLA -->
+        <div class="row align-items-start">
+            <div class="col"><b>Juego</b></div>
+            <div class="col"><b>Title</b></div>
+            <div class="col"><b>Price</b></div>
+            <div class="col"><b>Categoria</b></div>
+            <div class="col"><b>Fecha</b></div>
+            <div class="col"><b>Acciones</b></div>
+        </div>
+        <hr class="titleHr">
+        <!-- FIN TITULOS TABLA -->
+
+        <!-- MI TIENDA -->
+        <ng-container *ngFor="let producto of usuario.productos">
+            <ng-container *ngIf="producto.estado == 'Venta' ">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <img src="{{producto.imagen}}" class="icono">
+                    </div>
+                    <div class="col-2">
+                        {{producto.nombre}}
+                    </div>
+                    <div class="col">
+                        {{producto.precioTotalstock}}{{producto.divisa.simbolo}}
+                    </div>
+                    <div class="col">
+                        {{producto.categoria}}
+                    </div>
+                    <div class="col">
+                        {{getDate(producto)}}
+                    </div>
+                    <div class="col">
+                        <img src="../../assets/icons/edit.png" class="iconoOferta" (click)="openDialogEditar(producto.idProducto)">
+                        <img src="../../assets/icons/crossAzul.png" (click)="borrarProducto(producto)" class="iconoOferta">
+                    </div>
+                    <hr>
+                </div>
+            </ng-container>
+        </ng-container>
+        <!-- FIN MI TIENDA -->
+    </div>
+
+    <!-- TIENDA -->
+    <br>
+    <div class="contenedor">
+        <p class="subtitle"><img class="icono" src="../assets/icons/inventario.png"> Mi inventario</p>
+        <!-- TITULOS TABLA -->
+        <div class="row align-items-start">
+            <div class="col"><b>Juego</b></div>
+            <div class="col"><b>Title</b></div>
+            <div class="col"><b>Price</b></div>
+            <div class="col"><b>Categoria</b></div>
+            <div class="col"><b>Fecha</b></div>
+            <div class="col"><b>Acciones</b></div>
+        </div>
+        <hr class="titleHr">
+        <!-- FIN TITULOS TABLA -->
+        <!-- MI Inventario -->
+        <ng-container *ngFor="let producto of usuario.productos">
+            <ng-container *ngIf="producto.estado == 'Compra' ">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <img src="{{producto.imagen}}" class="icono">
+                    </div>
+                    <div class="col-2">
+                        {{producto.nombre}}
+                    </div>
+                    <div class="col">
+                        {{producto.precioTotalstock}}{{producto.divisa.simbolo}}
+                    </div>
+                    <div class="col">
+                        {{producto.categoria}}
+                    </div>
+                    <div class="col">
+                        {{getDate(producto)}}
+                    </div>
+                    <div class="col">
+                        <img src="../../assets/icons/edit.png" class="iconoOferta" (click)="openDialogEditar(producto.idProducto)">
+                    </div>
+                    <hr>
+                </div>
+            </ng-container>
+        </ng-container>
+        <!-- FIN MI Inventario -->
+    </div>
+    <br>
+
+
+    <!-- EDITAR PERFIL -->
+    <form #actualizarUsuario="ngForm">
+        <div class="contenedor">
+            <p class="subtitle"><img class="icono" src="../assets/icons/profile.png"> Editar Perfil</p>
+            <hr class="titleHr">
+            <div class="row">
+                <div class="col inputTag">Usuario</div>
+                <div class="col">
+                    <input type="text" class="input" name="usuario" [(ngModel)]="nuevoUsuario" (keyup)="controlActualizar()">
+                </div>
+                <div class="col inputTag">Nombre</div>
+                <div class="col">
+                    <input type="text" class="input" name="nombre" [(ngModel)]="nuevoNombre" (keyup)="controlActualizar()">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col inputTag">Apellidos</div>
+                <div class="col">
+                    <input type="text" class="input" name="apellidos" [(ngModel)]="nuevosApellidos" (keyup)="controlActualizar()">
+                </div>
+                <div class="col inputTag">Email</div>
+                <div class="col">
+                    <input type="text" class="input" name="email" [(ngModel)]="nuevoEmail" (keyup)="controlActualizar()">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col inputTag">Fecha Nacimiento</div>
+                <div class="col">
+                    <input type="date" class="input inputWidth" name="fechaNacimiento" [(ngModel)]="nuevaFecha" (change)="controlActualizar()">
+                </div>
+                <div class="col inputTag">Pais</div>
+                <div class="col">
+                    <input type="text" class="input" name="pais" [(ngModel)]="nuevoPais" (keyup)="controlActualizar()">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col inputTag">Contraseña</div>
+                <div class="col">
+                    <input type="password" class="input" name="contrasena" #password="ngModel" [(ngModel)]="nuevaPassword" style="-webkit-text-security: disc;" (keyup)="controlActualizar()">
+                </div>
+                <div class="col inputTag">Confirmar Contraseña</div>
+                <div class="col">
+                    <input type="password" class="input" name="contrasenaRepetir" #passwordRepetit="ngModel" [(ngModel)]="nuevaPasswordRepetida" style="-webkit-text-security: disc;" (keyup)="controlActualizar()"><label *ngIf="passwordCorrecta==false && (!passwordRepetit.pristine || !password.pristine) "
+                        style="color: red;">La contraseña a de ser igual</label>
+                </div>
+            </div>
+            <br>
+            <button [disabled]="modificado==false || passwordCorrecta==false" (click)="openDialog()">Actualizar</button>
+            <br><br>
+        </div>
+    </form>
+    <!-- FIN EDITAR PERFIL -->
+    <br>
+    <!-- WALLET -->
+    <div class="contenedor">
+        <p class="subtitle"><img class="icono" src="../assets/icons/wallet.png"> Cartera</p>
+        <hr class="titleHr">
+        <div class="row align-items-start">
+            <div class="col"><b>Productos</b></div>
+            <div class="col"><b>Saldo</b></div>
+        </div>
+        <div class="row align-items-start">
+            <div class="col">
+                {{productosActivos}}
+            </div>
+            <div class="col">
+                {{saldo}} €
+            </div>
+        </div>
+        <br>
+    </div>
+    <!-- FIN WALLET -->
+</div>

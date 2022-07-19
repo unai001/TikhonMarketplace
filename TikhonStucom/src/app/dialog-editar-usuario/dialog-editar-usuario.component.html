@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>¿Estás seguro de que quieres modificar los siguientes datos? </h1>
+<!-- Dialog que se muestra al dar a editar los datos de un usuario -->
+<!-- Con los ngIf, unicamente muestra los que han recibido un cambio respecto al anterior -->
+<div mat-dialog-content>
+  <div *ngIf="data.usuario.usuario!=data.nuevosDatos.usuario">
+    Usuario: {{data.nuevosDatos.usuario}}
+  </div>
+  <div *ngIf="data.usuario.nombre!=data.nuevosDatos.nombre">
+    Nombre: {{data.nuevosDatos.nombre}}
+  </div>
+  <div *ngIf="data.usuario.apellidos!=data.nuevosDatos.apellidos">
+    Apellidos: {{data.nuevosDatos.apellidos}}
+  </div>
+  <div *ngIf="data.usuario.email!=data.nuevosDatos.email">
+    Email: {{data.nuevosDatos.email}}
+  </div>
+  <div *ngIf="data.usuario.fechaNacimiento!=data.nuevosDatos.fechaNacimiento">
+    Fecha Nacimiento: {{data.nuevosDatos.fechaNacimiento}}
+  </div>
+  <div *ngIf="data.usuario.pais!=data.nuevosDatos.pais">
+    Pais: {{data.nuevosDatos.pais}}
+  </div>
+  <div *ngIf="data.usuario.password!=data.nuevosDatos.password">
+    Contraseña
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No</button>
+  <button mat-button mat-dialog-close (click)="actualizarPerfil()" cdkFocusInitial>Si</button>

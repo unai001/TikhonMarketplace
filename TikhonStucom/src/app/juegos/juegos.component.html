@@ -1,0 +1,19 @@
+<div id="contenido">
+  <h1 class="sectionTitle">Juegos</h1>
+
+  <div class="container">
+      <div *ngFor="let j of juegos" class="cartaDiv" routerLink="/juego/{{j.acronimo}}">
+          <div class="card">
+            <img src="{{j.imagen}}"  class="card-img-top cardImage">
+            <div class="card-body">
+              <h5 class="card-title">{{j.nombre}}</h5>
+              <p class="cardSubtitle">{{j.desarrollador}} - {{j.anoLanzamiento}}</p>
+              <hr>
+              <p class="card-text cardDesciption">{{j.descripcion}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    

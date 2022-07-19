@@ -1,0 +1,477 @@
+::ng-deep .bodyDyslexia {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #F5F5F5;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s linear;
+}
+
+.sidenav a {
+    padding: 0px 8px 8px 24px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #3E514F;
+    display: block;
+    transition: 0.5s linear;
+    font-size: 20px;
+    margin-left: 5%;
+    width: min(219px);
+}
+
+.sidenav a:hover {
+    color: #2E89FC;
+    margin-left: 15%;
+    cursor: pointer;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 36px;
+    margin-left: 100px;
+    cursor: pointer;
+}
+
+#main {
+    transition: margin-left .5s linear;
+    padding: 20px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.leftNavbarTitle {
+    margin-top: 4px;
+    margin-left: 12px;
+    color: #3E514F;
+    width: min(232px);
+}
+
+.leftNavbarTitle:hover {
+    color: #2E89FC;
+    cursor: pointer;
+}
+
+.hrLeftNavbar {
+    height: 2px;
+    margin-top: -4px;
+    color: #31E3CB;
+    opacity: 1;
+}
+
+.nav {
+    background-color: var(--nb-color);
+    height: 50px;
+}
+
+.logoNavBar {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+    margin-top: 4px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.navbarTitle {
+    margin-top: 5px;
+    color: var(--nbt-color);
+    margin-right: 4px;
+    font-size: xx-large;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.navbarTitle:hover {
+    cursor: pointer;
+}
+
+.nav-link {
+    color: #F5F5F5;
+    margin-top: 3px;
+    padding: 8px;
+    font-size: larger;
+}
+
+.iconNavbar {
+    width: 35px;
+    height: 35px;
+    margin-top: 7px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.bandera {
+    width: 35px;
+    height: 35px;
+    margin-top: 7px;
+    margin-right: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.navBarLinksLeft,
+.navBarLinksRight {
+    display: contents;
+}
+
+.hoverToBlue:hover {
+    color: #2E89FC;
+}
+
+.loginButton {
+    background-color: #2E89FC;
+    margin-right: 10px;
+    border-radius: 10px;
+    width: 80px;
+    color: #F5F5F5;
+    border: 2px solid #F5F5F5;
+    margin-top: 10px;
+}
+
+.loginButton:hover {
+    background: #1e6ccc;
+}
+
+img.navbarToggler {
+    margin-top: 6px;
+    margin-left: 14px;
+    cursor: pointer;
+    display: block;
+}
+
+img.icons {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+}
+
+div#navbarArriba.row {
+    transition: margin-left 0.5s linear;
+}
+
+
+/*CLASES PARA CAMBIAR COLOR DE IMAGEN */
+
+.saturate:hover {
+    filter: saturate(3);
+}
+
+.grayscale:hover {
+    filter: grayscale(100%);
+}
+
+.contrast:hover {
+    filter: contrast(160%);
+}
+
+.brightness:hover {
+    filter: brightness(0.25);
+}
+
+.blur:hover {
+    filter: blur(3px);
+}
+
+.invert {
+    filter: invert(var(--invert1-color));
+}
+
+.invert:hover {
+    filter: invert(var(--invert2-color));
+}
+
+.invertW {
+    filter: invert(var(--invert3-color));
+}
+
+.invertW:hover {
+    filter: invert(var(--invert4-color));
+}
+
+.invertNoti {
+    filter: invert(20%);
+}
+
+.invertNoti:hover {
+    filter: invert(0%);
+}
+
+.sepia:hover {
+    filter: sepia(100%);
+}
+
+.huerotate:hover {
+    filter: hue-rotate(180deg);
+}
+
+.rss.opacity:hover {
+    filter: opacity(50%);
+}
+
+
+/*FIN CLASES PARA CAMBIAR COLOR DE IMAGEN */
+
+
+/*ESTILOS MENU DROPDOWN IDIOMAS*/
+
+
+/* Dropdown Button */
+
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    background-image: url('/assets/icons/banderas/spain.png');
+    background-size: cover;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* Dropdown Content (Hidden by Default) */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #F5F5F5;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+/* Links inside the dropdown */
+
+.dropdown-content a {
+    color: 2E89FC;
+    padding: 4px 16px;
+    text-decoration: none;
+    display: flex;
+}
+
+.dropdown-content a:hover {
+    background-color: #31E3CB;
+}
+
+.languageTag {
+    margin-top: 12px;
+}
+
+
+/*FIN ESTILOS MENU DROPDOWN IDIOMAS*/
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.languageDropdwon {
+    display: inline;
+}
+
+.languageTag {
+    margin-top: 10px;
+}
+
+
+/*FIN ESTILOS MENU DROPDOWN IDIOMAS*/
+
+
+/*ESTILOS DARK & LIGHT SWITCH*/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-top: 8px;
+    margin-right: 3px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    z-index: 2;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.sun {
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    right: 4px;
+    bottom: 4px;
+}
+
+.moon {
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    left: 6px;
+    bottom: 6px;
+}
+
+
+/*FIN ESTILOS DARK & LIGHT SWITCH*/
+
+
+/*INICIO ESTILOS DROPDOWN PERFIL*/
+
+.dropdown2 {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content2 {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding-bottom: 10px;
+}
+
+.dropdown2-span {
+    align-items: center;
+    padding-left: 6px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+
+.dropdown2:hover .dropdown-content2 {
+    display: block;
+}
+
+
+/*FIN ESTILOS DROPDOWN PERFIL*/
+
+.loginName {
+    color: #F5F5F5;
+    line-height: 50px;
+    margin-left: -10px;
+    padding-right: 10px;
+}
+
+.loginName:hover {
+    color: #2E89FC;
+    cursor: pointer;
+}
+
+.logOffButton {
+    background-color: transparent;
+    border: 0px;
+    border-radius: 0px;
+    margin-top: 9px;
+    margin-right: 5px;
+    color: black;
+    font-size: larger;
+    font-weight: bold;
+}
+
+#filtrar {
+    width: 40px;
+    color: #f6f6f6;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 12rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerButton {
+    background-color: #2E89FC;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+}
+
+.footerIcon {
+    width: 22px;
+    height: 24px;
+}

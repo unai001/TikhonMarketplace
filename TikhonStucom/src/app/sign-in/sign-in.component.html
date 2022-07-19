@@ -1,0 +1,52 @@
+<div id="contenido">
+    <div class="wrapper fadeInDown">
+        <div id="formContent" class="row">
+            <!-- Tabs Titles -->
+
+            <!-- Icon -->
+            <div class="fadeIn first col-5 bg">
+            </div>
+            <!-- Login Form -->
+            <form name="signInForm" class="col" (submit)="onSubmit()">
+                <h1 class="fadeIn first">SignIn</h1>
+
+                <input type="text" class="fadeIn second" name="SignUser" placeholder="User name" required minlength="3" maxlength="10" autocomplete="off" [(ngModel)]="SignUser" (input)="chekUserName()">
+                <span name="SignUserError" id="SignUserError" ngDefaultControl>{{SignUserError}}</span>
+
+                <input type="text" style="-webkit-text-security: disc" id="SignPass1" class="fadeIn third" name="SignPass1" placeholder="Password" required minlength="4" maxlength="30" autocomplete="off" [(ngModel)]="SignPass1" (input)="chekPass1()">
+                <span name="SignPass1Error" id="Signpass1" ngDefaultControl>{{SignPass1Error}}</span>
+
+                <input type="text" style="-webkit-text-security: disc" id="Signpassword2" class="fadeIn third" name="SignPass2" placeholder="Repeat Password" autocomplete="off" required [(ngModel)]="SignPass2" (input)="chekPass2()">
+                <span name="SignPass2Error" id="SignPass2Error" ngDefaultControl>{{SignPass2Error}}</span>
+
+                <input type="text" id="login" class="fadeIn second" name="SignName" placeholder="Nombre" autocomplete="on" [(ngModel)]="SignName" (input)="chekName()">
+                <span name="SignNameError" id="SignPass2Error" ngDefaultControl>{{SignNameError}}</span>
+                <input type="text" id="login" class="fadeIn second" name="SignApe" placeholder="Apellidos" autocomplete="on" [(ngModel)]="SignApellidos" (input)="chekApellidos()">
+                <span name="SignApellidosError" id="SignPass2Error" ngDefaultControl>{{SignApellidosError}}</span>
+
+
+                <input type="text" id="SignEmail" class="fadeIn second" name="SignEmail" placeholder="Email" autocomplete="on" required [(ngModel)]="SignEmail" (input)="chekEmail()">
+                <span name="SignEmailError" id="SignEmailError" ngDefaultControl>{{SignEmailError}}</span>
+
+                <input type="text" onfocus="(this.type='date')" id="SignDate" class="fadeIn second" name="SignEdad" placeholder="Fecha de nacimiento" autocomplete="off" required [(ngModel)]="SignFecha" (input)="chekEdad()">
+                <span name="SignEmailError" id="SignEmailError" ngDefaultControl>{{SignFechaError}}</span>
+
+                <select type="select" id="signPais" class="fadeIn second" name="signPais" (change)="chekPais();">
+                    <option hidden selected value="Pais" >Pais</option>
+                    <option class="selectedOption" *ngFor="let pais of paisList" value="{{pais}}" >
+                        {{pais}}
+                    </option>
+                </select>
+                <span name="SignPaisError" id="SignPaisError" ngDefaultControl>{{SignPaisError}}</span>
+
+                <!-- CAPTCHA -->
+                <div id="captchaImagesContainer">
+                    <div id="captchaImages"></div>
+                    <input type="text" id="respuestaCaptcha" name="respuestaCaptcha" placeholder="Respuesta" autocomplete="off" [(ngModel)]="respuestaCaptcha" (input)="sendCaptcha()">
+                </div>
+                <span name="SignCaptchaError" id="SignCaptchaError" ngDefaultControl>{{SignCaptchaError}}</span>
+                <input type="submit" id="submit" class="fadeIn fourth bottomButtons" value="Sign In">
+            </form>
+        </div>
+    </div>
+</div>

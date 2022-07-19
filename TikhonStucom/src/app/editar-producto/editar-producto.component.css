@@ -1,0 +1,55 @@
+::ng-deep mat-dialog-container {
+  background-color: #F5F5F5 !important;
+  border: solid #31E3CB 2px !important;
+  color: black !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+::ng-deep mat-dialog-container #contenido {
+  transition: margin-left 0.5s linear !important;
+}
+
+::ng-deep mat-dialog-container .title {
+  text-align: center !important;
+  color: #3E514F !important;
+  margin-bottom: 10px !important;
+  margin-top: 10px !important;
+  text-transform: uppercase !important;
+  font-size: 40px !important;
+}
+
+::ng-deep mat-dialog-container .subtitle {
+  text-align: center !important;
+  color: #3E514F !important;
+  margin-bottom: 8px !important;
+  margin-top: 8px !important;
+  text-transform: uppercase !important;
+  font-size: 30px;
+}
+
+
+::ng-deep mat-dialog-container .formSUbidaProducto {
+  padding: 5px !important;
+  background-color: #F5F5F5 !important;
+  border-radius: 10px !important;
+}
+
+::ng-deep mat-dialog-container .centrado{
+  margin-left: 45% !important;
+}
+::ng-deep ::ng-deep .mat-step-header .mat-step-icon {
+  background-color:   #2E89FC !important ;
+}
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #31E3CB !important;
+
+}
+::ng-deep mat-stepper{
+  background-color: #F5F5F5 !important;
+}
+::ng-deep .mat-stepper-horizontal-line {
+  border-top-color: #31E3CB !important;
+}
+::ng-deep .mat-step-text-label {
+  color: #2E89FC !important ;
+}
+

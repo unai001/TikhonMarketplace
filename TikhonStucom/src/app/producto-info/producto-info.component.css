@@ -1,0 +1,121 @@
+#contenido {
+    transition: margin-left 0.5s linear;
+    text-align: center;
+}
+
+.imagenContainer {
+    padding-top: 50px;
+}
+
+.imagen {
+    height: 70%;
+    max-width: 600px;
+    border-radius: 20px;
+}
+
+.nombreContainer {
+    padding-top: 50px;
+    margin-left: -70%;
+}
+
+.nombre {
+    font-size: 43px;
+    font-weight: 700;
+}
+
+.descripcionComtainer {
+    padding-top: 50px;
+    margin-left: -100px;
+    text-align: left;
+    width: 90%;
+    min-width: 500px;
+}
+
+.infoComtainer {
+    padding-top: 50px;
+    margin-left: -100px;
+    text-align: left;
+}
+
+.info {
+    font-weight: bold;
+}
+
+.comprarContainer {
+    padding-top: 50px;
+    margin-left: -100px;
+    text-align: left;
+}
+
+.btnAddCarrito {
+    background-color: #2E89FC;
+    height: 60px;
+    width: 250px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.btnAddCarrito:hover {
+    background-color: #394cf6;
+    color: white;
+}
+
+.btnInCarrito {
+    background-color: #2efc3c;
+    height: 60px;
+    width: 250px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.btnInCarrito:hover {
+    background-color: #1b7b00;
+    color: white;
+}
+
+.btnCompra {
+    background-color: #2E89FC;
+    height: 60px;
+    width: 150px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.btnCompra:hover {
+    background-color: #394cf6;
+    color: white;
+}
+
+.btnIcono {
+    width: 50px;
+}
+
+.btnIcono1 {
+    filter: invert(100%);
+}
+
+.btnIcono2 {
+    filter: invert(0%);
+}
+
+
+/* cards */
+
+.row {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#offertas {
+    text-align: left;
+}
+
+.medioHr {
+    height: 10px;
+    width: 50%;
+    margin-right: 50%;
+    opacity: 1;
+}

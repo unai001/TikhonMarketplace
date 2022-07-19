@@ -1,0 +1,52 @@
+<div id="contenido">
+    <!-- TIENDA -->
+    <div class="contenedor">
+        <p class="subtitle"> Mi carrito</p>
+        <!-- TITULOS TABLA -->
+        <div class="row align-items-start">
+            <div class="col"><b>Juego</b></div>
+            <div class="col"><b>Title</b></div>
+            <div class="col"><b>Price</b></div>
+            <div class="col"><b>Categoria</b></div>
+            <div class="col"><b>Fecha</b></div>
+            <div class="col"><b>Descartar</b></div>
+        </div>
+        <hr class="titleHr">
+        <!-- FIN TITULOS TABLA -->
+
+        <!-- MI TIENDA -->
+        <div>
+            <ng-container *ngIf="precioTotal == 0">
+                <div class="row align-items-start">
+                    <h2>Tu carrito esta vacio :(</h2>
+                </div>
+            </ng-container>
+        </div>
+        <ng-container *ngFor="let producto of carrito">
+            <div class="row align-items-start carrito" routerLink="/productoInfo/{{producto.idProducto}}">
+                <div class="col">
+                    <img src="{{producto.imagen}}" class="icono">
+                </div>
+                <div class="col">
+                    {{producto.nombre}}
+                </div>
+                <div class="col">
+                    {{producto.precioTotalstock}}{{producto.divisa.simbolo}}
+                </div>
+                <div class="col">
+                    {{producto.categoria}}
+                </div>
+                <div class="col">
+                    {{showDate(producto.fechaPublicacion.date)}}
+                </div>
+                <div class="col">
+                    <img src="../../assets/icons/crossAzul.png" (click)="deleteProductFromCarrito(producto.idProducto)" class="iconoOferta">
+                </div>
+                <hr>
+            </div>
+        </ng-container>
+        <hr class="titleHr">
+        <span>Precio total: {{precioTotal}} €</span><button class="btn botonCompra" (click)="comprar()">Comprar</button>
+        <!-- FIN MI TIENDA -->
+    </div>
+</div>

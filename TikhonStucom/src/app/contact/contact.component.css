@@ -1,0 +1,46 @@
+#contenido {
+    transition: margin-left 0.5s linear;
+}
+
+.title {
+    text-align: center;
+    color: #3E514F;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+.contenedorContact {
+    text-align: center;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    width: 50%;
+    margin-left: 25%;
+}
+
+p {
+    text-align: justify;
+    padding: 10px;
+    font-size: large;
+}
+
+contactForm {
+    padding: 10px;
+}
+
+.sendButton {
+    color: #F5F5F5;
+    background-color: #2E89FC;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.username{
+    width: 200px;
+}
+
+input, textarea {
+    border: #31E3CB 1px solid;
+    margin-top: 8px;
+  }
